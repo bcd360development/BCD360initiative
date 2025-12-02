@@ -6,6 +6,7 @@ import { db } from '../firebase';
 import { BlogPost, Comment } from '../types';
 import { NEWS } from '../constants';
 import { ArrowLeft, Calendar, Tag, Share2, Clock, User, MessageSquare, Send, Loader2 } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const PostDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +20,8 @@ const PostDetail: React.FC = () => {
   const [commentError, setCommentError] = useState('');
 
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const isFR = language === 'FR';
 
   // Fetch Post
   useEffect(() => {
@@ -134,7 +137,7 @@ const PostDetail: React.FC = () => {
         
         <div className="absolute top-8 left-4 md:left-8">
            <NavLink to="/news" className="inline-flex items-center gap-2 text-white/90 hover:text-white bg-black/30 hover:bg-black/50 backdrop-blur px-4 py-2 rounded-full transition text-sm font-medium">
-             <ArrowLeft size={16} /> Back to News
+             <ArrowLeft size={16} /> {isFR ? 'Retour aux actualités' : 'Back to News'}
            </NavLink>
         </div>
 
@@ -164,15 +167,17 @@ const PostDetail: React.FC = () => {
              <div className="flex items-center gap-6">
                <div className="flex items-center gap-2">
                  <User size={16} className="text-primary"/>
-                 <span className="font-medium text-gray-700">BCD360 Admin</span>
+                 <span className="font-medium text-gray-700">
+                   {isFR ? 'Admin BCD360' : 'BCD360 Admin'}
+                 </span>
                </div>
                <div className="flex items-center gap-2">
                  <Clock size={16} />
-                 <span>3 min read</span>
+                 <span>{isFR ? 'Lecture : 3 min' : '3 min read'}</span>
                </div>
              </div>
              <button className="flex items-center gap-2 hover:text-primary transition">
-               <Share2 size={16} /> Share
+               <Share2 size={16} /> {isFR ? 'Partager' : 'Share'}
              </button>
           </div>
 
@@ -206,14 +211,18 @@ const PostDetail: React.FC = () => {
         <div className="mt-8 bg-white rounded-3xl p-6 md:p-12 shadow-lg border border-gray-100 mb-20">
             <h3 className="text-2xl font-serif font-bold text-dark mb-8 flex items-center gap-3">
               <MessageSquare className="text-secondary" /> 
-              Comments <span className="text-gray-400 text-lg font-normal">({comments.length})</span>
+              {isFR ? 'Commentaires' : 'Comments'} <span className="text-gray-400 text-lg font-normal">({comments.length})</span>
             </h3>
 
             {/* Comment List */}
             <div className="space-y-6 mb-12">
                {comments.length === 0 ? (
                  <div className="text-center py-8 text-gray-500 bg-gray-50 rounded-xl border border-dashed border-gray-200">
-                   {commentError ? commentError : "No comments yet. Be the first to share your thoughts!"}
+                   {commentError
+                     ? commentError
+                     : isFR
+                       ? "Aucun commentaire pour le moment. Soyez le premier à partager votre avis !"
+                       : "No comments yet. Be the first to share your thoughts!"}
                  </div>
                ) : (
                  comments.map((comment) => (
@@ -239,28 +248,34 @@ const PostDetail: React.FC = () => {
 
             {/* Comment Form */}
             <div className="bg-blue-50/50 p-6 md:p-8 rounded-2xl border border-blue-100">
-              <h4 className="text-lg font-bold text-primary mb-6">Leave a Reply</h4>
+              <h4 className="text-lg font-bold text-primary mb-6">
+                {isFR ? 'Laisser un commentaire' : 'Leave a Reply'}
+              </h4>
               <form onSubmit={handleCommentSubmit} className="space-y-6">
                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      {isFR ? 'Nom' : 'Name'}
+                    </label>
                     <input 
                       type="text" 
                       required
                       value={commentForm.name}
                       onChange={(e) => setCommentForm({...commentForm, name: e.target.value})}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary outline-none bg-white transition"
-                      placeholder="Your Name"
+                      placeholder={isFR ? 'Votre nom' : 'Your Name'}
                     />
                  </div>
                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Comment</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      {isFR ? 'Commentaire' : 'Comment'}
+                    </label>
                     <textarea 
                       required
                       rows={4}
                       value={commentForm.message}
                       onChange={(e) => setCommentForm({...commentForm, message: e.target.value})}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary outline-none bg-white transition"
-                      placeholder="Share your thoughts..."
+                      placeholder={isFR ? 'Partagez vos idées…' : 'Share your thoughts...'}
                     />
                  </div>
                  <button 
@@ -269,7 +284,7 @@ const PostDetail: React.FC = () => {
                   className="bg-primary text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-900 transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                  >
                    {isPostingComment ? <Loader2 className="animate-spin" size={18}/> : <Send size={18} />}
-                   Post Comment
+                   {isFR ? 'Publier le commentaire' : 'Post Comment'}
                  </button>
               </form>
             </div>

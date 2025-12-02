@@ -2,8 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { CONTACT_INFO, SOCIAL_LINKS } from '../constants';
+import { useLanguage } from '../LanguageContext';
 
 const Footer: React.FC = () => {
+  const { language } = useLanguage();
+
   return (
     <footer className="bg-white text-gray-800 pt-16 pb-8 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,12 +27,30 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 border-b border-gray-200 pb-2 inline-block text-primary">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 border-b border-gray-200 pb-2 inline-block text-primary">
+              {language === 'EN' ? 'Quick Links' : 'Liens rapides'}
+            </h4>
             <ul className="space-y-3">
-              <li><NavLink to="/about" className="text-gray-600 hover:text-secondary transition text-sm">Who We Are</NavLink></li>
-              <li><NavLink to="/projects" className="text-gray-600 hover:text-secondary transition text-sm">Our Projects</NavLink></li>
-              <li><NavLink to="/work-with-us" className="text-gray-600 hover:text-secondary transition text-sm">Volunteer</NavLink></li>
-              <li><NavLink to="/news" className="text-gray-600 hover:text-secondary transition text-sm">News & Updates</NavLink></li>
+              <li>
+                <NavLink to="/about" className="text-gray-600 hover:text-secondary transition text-sm">
+                  {language === 'EN' ? 'Who We Are' : 'Qui sommes-nous'}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/projects" className="text-gray-600 hover:text-secondary transition text-sm">
+                  {language === 'EN' ? 'Our Projects' : 'Nos projets'}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/work-with-us" className="text-gray-600 hover:text-secondary transition text-sm">
+                  {language === 'EN' ? 'Volunteer' : 'Bénévolat'}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/news" className="text-gray-600 hover:text-secondary transition text-sm">
+                  {language === 'EN' ? 'News & Updates' : 'Actualités'}
+                </NavLink>
+              </li>
             </ul>
           </div>
 

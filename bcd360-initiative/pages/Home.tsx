@@ -3,43 +3,59 @@ import { NavLink } from 'react-router-dom';
 import { ArrowRight, Heart, Lightbulb, Megaphone, BookOpen, Search, HeartHandshake, Briefcase, Leaf, Calendar } from 'lucide-react';
 import ImpactChart from '../components/ImpactChart';
 import { NEWS } from '../constants';
+import { useLanguage } from '../LanguageContext';
 
 const Home: React.FC = () => {
+  const { language } = useLanguage();
+  const isFR = language === 'FR';
+
   // Brand Colors: Blue #0A4B8E, Red #BC1916, Green #699232
   const objectives = [
     { 
-      title: 'Advocacy', 
-      description: 'Provide collaborative support for surviving and thriving by amplifying the voice and power of the most vulnerable while championing human rights.',
+      title: isFR ? 'Plaidoyer' : 'Advocacy', 
+      description: isFR
+        ? 'Offrir un soutien collaboratif pour la survie et l’épanouissement en amplifiant la voix et le pouvoir des plus vulnérables tout en défendant les droits humains.'
+        : 'Provide collaborative support for surviving and thriving by amplifying the voice and power of the most vulnerable while championing human rights.',
       icon: <Megaphone size={24} />,
       colorClass: 'bg-red-50 text-secondary' // Red for Advocacy/Voice
     },
     { 
-      title: 'Capacity Building', 
-      description: 'Be a recognized thought leader and knowledge partner for locally driven research solutions.',
+      title: isFR ? 'Renforcement des capacités' : 'Capacity Building', 
+      description: isFR
+        ? 'Devenir un leader d’opinion reconnu et un partenaire de référence pour des solutions de recherche portées localement.'
+        : 'Be a recognized thought leader and knowledge partner for locally driven research solutions.',
       icon: <BookOpen size={24} />,
       colorClass: 'bg-blue-50 text-primary' // Blue for Knowledge
     },
     { 
-      title: 'Research', 
-      description: 'Pioneer cutting-edge data tools and methods, conduct multidisciplinary research, and systematically build bodies of evidence.',
+      title: isFR ? 'Recherche' : 'Research', 
+      description: isFR
+        ? 'Être pionnier dans le développement d’outils et de méthodes de données innovants, mener des recherches multidisciplinaires et constituer des bases de preuves solides.'
+        : 'Pioneer cutting-edge data tools and methods, conduct multidisciplinary research, and systematically build bodies of evidence.',
       icon: <Search size={24} />,
       colorClass: 'bg-slate-100 text-slate-700' // Neutral/Tech for Research
     },
     { 
-      title: 'Service Development', 
-      description: 'Catalyze the use of evidence-based tools and scale-up availability, access and uptake of relevant services for the well-being of the most vulnerable.',
+      title: isFR ? 'Développement des services' : 'Service Development', 
+      description: isFR
+        ? 'Stimuler l’utilisation d’outils fondés sur les preuves et l’extension de la disponibilité, de l’accès et de l’utilisation de services essentiels pour le bien-être des plus vulnérables.'
+        : 'Catalyze the use of evidence-based tools and scale-up availability, access and uptake of relevant services for the well-being of the most vulnerable.',
       icon: <HeartHandshake size={24} />,
       colorClass: 'bg-green-50 text-accent' // Green for Growth/Services
     },
     { 
-      title: 'Economic Empowerment', 
-      description: 'Catalyze the economic development and self-reliance of the most vulnerable.',
+      title: isFR ? 'Autonomisation économique' : 'Economic Empowerment', 
+      description: isFR
+        ? 'Stimuler le développement économique et l’autonomie des personnes les plus vulnérables.'
+        : 'Catalyze the economic development and self-reliance of the most vulnerable.',
       icon: <Briefcase size={24} />,
       colorClass: 'bg-lime-50 text-accent' // Green for Money
     },
     { 
-      title: 'Sustainability', 
-      description: 'Grow the next generation of refined leaders that pioneer solutions for resilience, driving transformational change from the grassroots to the global level.',
+      title: isFR ? 'Durabilité' : 'Sustainability', 
+      description: isFR
+        ? 'Former la prochaine génération de leaders qui portent des solutions pour la résilience et impulsent un changement transformationnel du niveau communautaire au niveau mondial.'
+        : 'Grow the next generation of refined leaders that pioneer solutions for resilience, driving transformational change from the grassroots to the global level.',
       icon: <Leaf size={24} />,
       colorClass: 'bg-emerald-50 text-accent' // Green for Nature/Sustainability
     },
@@ -62,17 +78,19 @@ const Home: React.FC = () => {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center text-white">
           <span className="inline-block py-1 px-3 rounded bg-secondary/20 text-red-300 border border-secondary/50 w-fit mb-6 text-sm font-semibold tracking-wider backdrop-blur-sm">NGO REG: 8147392</span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight mb-6 max-w-4xl text-white drop-shadow-sm">
-            Inclusive Centre for Development
+            {isFR ? 'Centre inclusif pour le développement' : 'Inclusive Centre for Development'}
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl font-light drop-shadow-md">
-            Championing inclusive development for young people and marginalised women in Nigeria.
+            {isFR
+              ? 'Promouvoir un développement inclusif pour les jeunes et les femmes marginalisées au Nigeria.'
+              : 'Championing inclusive development for young people and marginalised women in Nigeria.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <NavLink to="/projects" className="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-800 transition flex items-center justify-center gap-2 shadow-lg">
-              Our Projects <ArrowRight size={20} />
+              {isFR ? 'Nos projets' : 'Our Projects'} <ArrowRight size={20} />
             </NavLink>
             <NavLink to="/work-with-us" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition flex items-center justify-center shadow-lg">
-              Volunteer With Us
+              {isFR ? 'Devenez bénévole' : 'Volunteer With Us'}
             </NavLink>
           </div>
         </div>
@@ -84,28 +102,40 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-6">
-                BCD360 is an inclusive centre for the development of young persons and marginalized women.
+                {isFR
+                  ? 'BCD360 est un centre inclusif dédié au développement des jeunes et des femmes marginalisées.'
+                  : 'BCD360 is an inclusive centre for the development of young persons and marginalized women.'}
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                For years now, Beam Community Development 360 Initiative (BCD360) has been championing inclusive development for young people and marginalised women in Nigeria.
+                {isFR
+                  ? 'Depuis plusieurs années, Beam Community Development 360 Initiative (BCD360) défend un développement inclusif pour les jeunes et les femmes marginalisées au Nigeria.'
+                  : 'For years now, Beam Community Development 360 Initiative (BCD360) has been championing inclusive development for young people and marginalised women in Nigeria.'}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 <div className="p-6 bg-blue-50 rounded-xl border border-blue-100">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
                     <Lightbulb size={24} />
                   </div>
-                  <h3 className="font-bold text-xl mb-2 text-primary">Our Mission</h3>
+                  <h3 className="font-bold text-xl mb-2 text-primary">
+                    {isFR ? 'Notre mission' : 'Our Mission'}
+                  </h3>
                   <p className="text-sm text-gray-600">
-                    To improve lives through creative approaches, capacity building, provision of critical services, and innovative research.
+                    {isFR
+                      ? 'Améliorer les conditions de vie grâce à des approches créatives, au renforcement des capacités, à la fourniture de services essentiels et à une recherche innovante.'
+                      : 'To improve lives through creative approaches, capacity building, provision of critical services, and innovative research.'}
                   </p>
                 </div>
                 <div className="p-6 bg-red-50 rounded-xl border border-red-100">
                    <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white mb-4">
                     <Heart size={24} />
                   </div>
-                  <h3 className="font-bold text-xl mb-2 text-secondary">Our Vision</h3>
+                  <h3 className="font-bold text-xl mb-2 text-secondary">
+                    {isFR ? 'Notre vision' : 'Our Vision'}
+                  </h3>
                   <p className="text-sm text-gray-600">
-                    An equitable and sustainable society that enhances the well-being of humanity without marginalisation.
+                    {isFR
+                      ? 'Une société équitable et durable qui améliore le bien-être de tous, sans marginalisation.'
+                      : 'An equitable and sustainable society that enhances the well-being of humanity without marginalisation.'}
                   </p>
                 </div>
               </div>
@@ -125,9 +155,13 @@ const Home: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-6">Our Strategic Objectives</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-6">
+              {isFR ? 'Nos objectifs stratégiques' : 'Our Strategic Objectives'}
+            </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Leveraging unique expertise, we collaborate with partners including funding bodies, governments, service providers, and civil society organizations on these objectives to achieve our mission and vision:
+              {isFR
+                ? 'En tirant parti de notre expertise unique, nous collaborons avec des partenaires — bailleurs, gouvernements, prestataires de services et organisations de la société civile — pour atteindre ces objectifs et réaliser notre mission et notre vision :'
+                : 'Leveraging unique expertise, we collaborate with partners including funding bodies, governments, service providers, and civil society organizations on these objectives to achieve our mission and vision:'}
             </p>
           </div>
 
@@ -152,12 +186,18 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-100 pb-6">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-4">Latest News & Updates</h2>
-              <p className="text-gray-600 text-lg">Stay informed about our activities, recent events, and opportunities.</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-dark mb-4">
+                {isFR ? 'Dernières nouvelles & mises à jour' : 'Latest News & Updates'}
+              </h2>
+              <p className="text-gray-600 text-lg">
+                {isFR
+                  ? 'Restez informé de nos activités, de nos événements récents et de nos opportunités.'
+                  : 'Stay informed about our activities, recent events, and opportunities.'}
+              </p>
             </div>
             <div className="hidden md:block">
               <NavLink to="/news" className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary hover:gap-3 transition-all">
-                View All News <ArrowRight size={20} />
+                {isFR ? 'Voir toutes les actualités' : 'View All News'} <ArrowRight size={20} />
               </NavLink>
             </div>
           </div>
@@ -183,7 +223,7 @@ const Home: React.FC = () => {
                     {item.summary}
                   </p>
                   <NavLink to={`/news/${item.id}`} className="inline-flex items-center gap-2 text-secondary font-bold text-sm hover:gap-3 transition-all mt-auto group/btn">
-                    Read Full Story <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                    {isFR ? 'Lire l’article complet' : 'Read Full Story'} <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                   </NavLink>
                 </div>
               </div>
@@ -192,7 +232,7 @@ const Home: React.FC = () => {
           
           <div className="mt-8 text-center md:hidden">
             <NavLink to="/news" className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors">
-              View All News <ArrowRight size={20} />
+              {isFR ? 'Voir toutes les actualités' : 'View All News'} <ArrowRight size={20} />
             </NavLink>
           </div>
         </div>
@@ -207,12 +247,16 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Join Us in Making a Difference</h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
+            {isFR ? 'Rejoignez-nous pour faire la différence' : 'Join Us in Making a Difference'}
+          </h2>
           <p className="text-xl text-blue-100 mb-10">
-            Whether you want to volunteer your time, partner with us, or donate to support our cause, there is a place for you at BCD360.
+            {isFR
+              ? 'Que vous souhaitiez donner de votre temps, devenir partenaire ou faire un don pour soutenir notre cause, il y a une place pour vous à BCD360.'
+              : 'Whether you want to volunteer your time, partner with us, or donate to support our cause, there is a place for you at BCD360.'}
           </p>
           <NavLink to="/contact" className="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:bg-gray-50 transform hover:-translate-y-1 transition duration-300">
-            Get Involved
+            {isFR ? 'S’engager avec nous' : 'Get Involved'}
           </NavLink>
         </div>
       </section>

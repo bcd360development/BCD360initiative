@@ -2,22 +2,14 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
-import { Language } from '../types';
+import { useLanguage } from '../LanguageContext';
 
-interface NavbarProps {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'EN' ? 'FR' : 'EN');
-  };
+  const { language, toggleLanguage } = useLanguage();
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50 md:sticky">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">

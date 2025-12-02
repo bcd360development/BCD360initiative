@@ -1,33 +1,58 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const WorkWithUs: React.FC = () => {
-  const benefits = [
-    'Improved health',
-    'Sense of purpose',
-    'Skill development',
-    'Expanded network',
-    'Career advancement',
-    'Professional references and more',
-  ];
+  const { language } = useLanguage();
+  const isFR = language === 'FR';
 
-  const focusAreas = [
-    'Improving health and wellbeing',
-    'Economic development and sustainability',
-    'Human rights protection',
-    'Breaking the cycle of GBV, stigma and discrimination',
-    'Social justice',
-    'Environmental justice and sustainability',
-    'Partnership for development',
-  ];
+  const benefits = isFR
+    ? [
+        'Santé améliorée',
+        'Sentiment d’utilité',
+        'Acquisition de compétences',
+        'Réseau élargi',
+        'Avancement professionnel',
+        'Références professionnelles et plus encore',
+      ]
+    : [
+        'Improved health',
+        'Sense of purpose',
+        'Skill development',
+        'Expanded network',
+        'Career advancement',
+        'Professional references and more',
+      ];
+
+  const focusAreas = isFR
+    ? [
+        'Amélioration de la santé et du bien-être',
+        'Développement économique et durabilité',
+        'Protection des droits humains',
+        'Briser le cycle des VBG, de la stigmatisation et de la discrimination',
+        'Social justice',
+        'Justice environnementale et durabilité',
+        'Partenariats pour le développement',
+      ]
+    : [
+        'Improving health and wellbeing',
+        'Economic development and sustainability',
+        'Human rights protection',
+        'Breaking the cycle of GBV, stigma and discrimination',
+        'Social justice',
+        'Environmental justice and sustainability',
+        'Partnership for development',
+      ];
 
   return (
     <div className="min-h-screen bg-white">
        <div className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">Work With Us</h1>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">
+            {isFR ? 'Travaillez avec nous' : 'Work With Us'}
+          </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Become a volunteer at BCD360 today!
+            {isFR ? 'Devenez bénévole à BCD360 dès aujourd’hui !' : 'Become a volunteer at BCD360 today!'}
           </p>
         </div>
       </div>
@@ -37,19 +62,24 @@ const WorkWithUs: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden mb-12">
           <div className="h-64 bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/hRKckXds/BCD360-8-1.jpg")' }}>
             <div className="w-full h-full bg-black/40 flex items-center justify-center">
-               <h2 className="text-3xl font-bold text-white text-center px-4">Volunteering Opportunity</h2>
+               <h2 className="text-3xl font-bold text-white text-center px-4">
+                 {isFR ? 'Opportunité de bénévolat' : 'Volunteering Opportunity'}
+               </h2>
             </div>
           </div>
           
           <div className="p-8 md:p-12">
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              This is an opportunity to contribute to the development of young people and marginalized women. 
-              Join a team dedicated to making a tangible impact in our communities.
+              {isFR
+                ? 'C’est une occasion de contribuer au développement des jeunes et des femmes marginalisées. Rejoignez une équipe engagée à produire un impact concret dans nos communautés.'
+                : 'This is an opportunity to contribute to the development of young people and marginalized women. Join a team dedicated to making a tangible impact in our communities.'}
             </p>
 
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-xl font-serif font-bold text-primary mb-4">Areas of Contribution</h3>
+                <h3 className="text-xl font-serif font-bold text-primary mb-4">
+                  {isFR ? 'Domaines de contribution' : 'Areas of Contribution'}
+                </h3>
                 <ul className="space-y-3">
                   {focusAreas.map((area, i) => (
                     <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
@@ -61,7 +91,9 @@ const WorkWithUs: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-serif font-bold text-primary mb-4">Why Volunteer?</h3>
+                <h3 className="text-xl font-serif font-bold text-primary mb-4">
+                  {isFR ? 'Pourquoi être bénévole ?' : 'Why Volunteer?'}
+                </h3>
                 <ul className="space-y-3">
                   {benefits.map((benefit, i) => (
                     <li key={i} className="flex items-center gap-3 text-gray-600 text-sm">
@@ -74,23 +106,34 @@ const WorkWithUs: React.FC = () => {
             </div>
 
             <div className="mt-12 bg-gray-50 p-8 rounded-xl border border-dashed border-gray-300 text-center">
-              <h3 className="text-xl font-bold text-dark mb-4">How to Apply</h3>
+              <h3 className="text-xl font-bold text-dark mb-4">
+                {isFR ? 'Comment postuler' : 'How to Apply'}
+              </h3>
               <p className="text-gray-600 mb-6">
-                Send your updated CV and a 1-page cover letter stating reason(s) why you want to volunteer, 
-                capturing what you want to contribute to reaching young people and marginalized women.
+                {isFR
+                  ? 'Envoyez votre CV à jour et une lettre de motivation d’une page expliquant pourquoi vous souhaitez être bénévole et ce que vous souhaitez apporter pour atteindre les jeunes et les femmes marginalisées.'
+                  : 'Send your updated CV and a 1-page cover letter stating reason(s) why you want to volunteer, capturing what you want to contribute to reaching young people and marginalized women.'}
               </p>
               <div className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-mono text-sm">
-                Email: BCD360@proton.me
+                Email : BCD360@proton.me
               </div>
-              <p className="mt-4 text-xs text-gray-500">Subject: (I want to volunteer)</p>
+              <p className="mt-4 text-xs text-gray-500">
+                {isFR ? 'Objet : (Je veux être bénévole)' : 'Subject: (I want to volunteer)'}
+              </p>
             </div>
 
           </div>
         </div>
 
         <div className="text-center text-gray-500">
-           <h4 className="text-lg font-bold mb-2">Job Openings</h4>
-           <p>No current openings. Announcements will be posted here.</p>
+           <h4 className="text-lg font-bold mb-2">
+             {isFR ? 'Offres d’emploi' : 'Job Openings'}
+           </h4>
+           <p>
+             {isFR
+               ? 'Aucune offre pour le moment. Les annonces seront publiées ici.'
+               : 'No current openings. Announcements will be posted here.'}
+           </p>
         </div>
 
       </div>

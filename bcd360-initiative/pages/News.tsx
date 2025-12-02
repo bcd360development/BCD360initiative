@@ -5,10 +5,13 @@ import { Calendar, ArrowRight, Tag } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useLanguage } from '../LanguageContext';
 
 const News: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const { language } = useLanguage();
+  const isFR = language === 'FR';
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -72,8 +75,14 @@ const News: React.FC = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 pb-8">
           <div>
-            <h1 className="text-4xl font-serif font-bold text-dark mb-2">News & Updates</h1>
-            <p className="text-gray-600">Latest stories, events, and opportunities from BCD360.</p>
+            <h1 className="text-4xl font-serif font-bold text-dark mb-2">
+              {isFR ? 'Actualités & mises à jour' : 'News & Updates'}
+            </h1>
+            <p className="text-gray-600">
+              {isFR
+                ? 'Les dernières histoires, événements et opportunités de BCD360.'
+                : 'Latest stories, events, and opportunities from BCD360.'}
+            </p>
           </div>
         </div>
 
@@ -117,7 +126,7 @@ const News: React.FC = () => {
                     to={`/news/${post.id}`}
                     className="flex items-center gap-2 text-secondary font-bold text-sm hover:gap-3 transition-all mt-auto group/btn"
                   >
-                    Read Full Story <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                    {isFR ? 'Lire l’article complet' : 'Read Full Story'} <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                   </NavLink>
                 </div>
               </div>

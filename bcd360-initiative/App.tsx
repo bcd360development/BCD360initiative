@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,7 +11,7 @@ import News from './pages/News';
 import PostDetail from './pages/PostDetail';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
-import { Language } from './types';
+import { LanguageProvider } from './LanguageContext';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -26,8 +26,6 @@ const ScrollToTop = () => {
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
-  
-  const [language, setLanguage] = useState<Language>('EN');
 
   if (isAdminRoute) {
     return <>{children}</>;
@@ -35,8 +33,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-800 relative">
-      <Navbar language={language} setLanguage={setLanguage} />
-      <main className="flex-grow">
+      <Navbar />
+      <main className="flex-grow pt-20 md:pt-0">
         {children}
       </main>
       <Footer />
@@ -63,21 +61,23 @@ function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/work-with-us" element={<WorkWithUs />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/news/:id" element={<PostDetail />} />
-          
-          {/* Admin Routes */}
-          <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-        </Routes>
-      </Layout>
+      <LanguageProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/work-with-us" element={<WorkWithUs />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<PostDetail />} />
+            
+            {/* Admin Routes */}
+            <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Routes>
+        </Layout>
+      </LanguageProvider>
     </HashRouter>
   );
 }
