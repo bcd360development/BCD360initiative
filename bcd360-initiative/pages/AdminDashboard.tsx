@@ -59,7 +59,7 @@ const AdminDashboard: React.FC = () => {
     } catch (error: any) {
       console.error("Error fetching data:", error);
       if (error.code === 'permission-denied') {
-        setError("Permission Denied: Please verify your Firebase Firestore Rules. You must allow writes for authenticated users.");
+        setError("Permission Denied");
       } else {
         setError("Failed to load data. Please check your internet connection.");
       }
@@ -157,12 +157,38 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         {error && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg flex items-start gap-3">
-             <AlertTriangle className="text-red-500 mt-0.5" size={20} />
-             <div>
-               <p className="font-bold text-red-800">Connection Error</p>
-               <p className="text-sm text-red-700">{error}</p>
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+             <div className="flex items-start gap-3">
+               <AlertTriangle className="text-red-500 mt-0.5" size={20} />
+               <div>
+                 <p className="font-bold text-red-800">Connection Error</p>
+                 <p className="text-sm text-red-700">
+                   {error === "Permission Denied" ? "Database access denied. Please update your Firestore Security Rules." : error}
+                 </p>
+               </div>
              </div>
+             {error === "Permission Denied" && (
+                <div className="mt-4 p-4 bg-red-100 rounded-lg text-xs font-mono text-red-900 overflow-x-auto border border-red-200">
+                  <p className="font-bold mb-2 uppercase text-red-800">Copy & Paste these rules into Firestore Console:</p>
+                  <pre className="whitespace-pre-wrap">{`rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /posts/{postId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+      match /comments/{commentId} {
+        allow read, create: if true;
+        allow update, delete: if request.auth != null;
+      }
+    }
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, delete: if request.auth != null;
+    }
+  }
+}`}</pre>
+                </div>
+             )}
           </div>
         )}
 

@@ -1,34 +1,35 @@
-import React, { createContext, useContext, useState } from 'react';
-import type { Language } from './types';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { Language } from './types';
+import { TRANSLATIONS } from './constants';
 
-interface LanguageContextValue {
+interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
+  t: (key: keyof typeof TRANSLATIONS) => string;
 }
 
-const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('EN');
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'EN' ? 'FR' : 'EN'));
+  const t = (key: keyof typeof TRANSLATIONS) => {
+    const translationGroup = TRANSLATIONS[key];
+    if (!translationGroup) return key;
+    return language === 'EN' ? translationGroup.en : translationGroup.fr;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
 export const useLanguage = () => {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) {
+  const context = useContext(LanguageContext);
+  if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
-  return ctx;
+  return context;
 };
-
-

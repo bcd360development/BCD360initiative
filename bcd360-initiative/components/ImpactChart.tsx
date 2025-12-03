@@ -1,25 +1,28 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts';
-
-const data = [
-  { name: 'Econ. Justice', count: 151, color: '#699232' }, // Green (Money/Growth)
-  { name: 'Healthcare', count: 424, color: '#0A4B8E' }, // Blue (Health/Trust)
-  { name: 'Social Justice', count: 210, color: '#BC1916' }, // Red (Action/Equity)
-  { name: 'Environment', count: 322, color: '#4d7c0f' }, // Dark Green (Nature)
-];
+import { useLanguage } from '../LanguageContext';
 
 const ImpactChart: React.FC = () => {
+  const { language, t } = useLanguage();
+
+  const data = [
+    { name: language === 'EN' ? 'Econ. Justice' : 'Just. Éco.', count: 151, color: '#699232' }, 
+    { name: language === 'EN' ? 'Healthcare' : 'Santé', count: 424, color: '#0A4B8E' }, 
+    { name: language === 'EN' ? 'Social Justice' : 'Just. Soc.', count: 210, color: '#BC1916' }, 
+    { name: language === 'EN' ? 'Environment' : 'Environ.', count: 322, color: '#4d7c0f' }, 
+  ];
+
   return (
     <div className="w-full h-[500px] bg-white p-4 md:p-6 rounded-xl shadow-lg border-t-4 border-primary">
-      <h3 className="text-xl font-serif font-bold text-gray-800 mb-4 text-center">Lives Impacted by Sector</h3>
+      <h3 className="text-xl font-serif font-bold text-gray-800 mb-4 text-center">{t('LivesImpacted')}</h3>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
           margin={{
             top: 20,
             right: 10,
-            left: -20, // Reduce left margin to maximize width
-            bottom: 70, // Increase bottom margin for rotated labels
+            left: -20,
+            bottom: 70,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />

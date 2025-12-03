@@ -34,7 +34,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-800 relative">
       <Navbar />
-      <main className="flex-grow pt-20 md:pt-0">
+      <main className="flex-grow">
         {children}
       </main>
       <Footer />
@@ -59,9 +59,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 function App() {
   return (
-    <HashRouter>
-      <ScrollToTop />
-      <LanguageProvider>
+    <LanguageProvider>
+      <HashRouter>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -77,8 +77,8 @@ function App() {
             <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </Layout>
-      </LanguageProvider>
-    </HashRouter>
+      </HashRouter>
+    </LanguageProvider>
   );
 }
 

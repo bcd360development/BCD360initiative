@@ -10,18 +10,26 @@ export interface NavItem {
 export interface ProjectData {
   id: string;
   title: string;
+  titleFr?: string;
   description: string;
+  descriptionFr?: string;
   stats: string;
+  statsFr?: string;
   image: string;
 }
 
 export interface BlogPost {
   id?: string;
   title: string;
+  titleFr?: string;
   description: string; // Short summary
+  descriptionFr?: string;
   content: string; // Full HTML/Markdown content
+  contentFr?: string;
   category: string;
+  categoryFr?: string;
   tags: string[];
+  tagsFr?: string[];
   imageUrl: string;
   date: string;
   createdAt: number;
@@ -40,12 +48,17 @@ export interface ContactMessage {
 export interface NewsItem {
   id: number | string;
   title: string;
+  titleFr?: string;
   date: string;
   summary: string;
+  summaryFr?: string;
   image: string;
   category?: string; // Optional for backward compatibility
+  categoryFr?: string;
   content?: string; // Full content for static posts
+  contentFr?: string;
   tags?: string[]; // Tags for static posts
+  tagsFr?: string[];
 }
 
 export interface CoreValue {
