@@ -29,19 +29,25 @@ const About: React.FC = () => {
       <div className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">{t('WhoWeAre')}</h1>
-          <p className="text-xl text-blue-200 max-w-2xl mx-auto">
-            {t('WhoWeAreSub')}
-          </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Intro */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 -mt-24 relative z-10 mb-16">
-          <h2 className="text-3xl font-serif font-bold text-dark mb-6">{t('OurHistory')}</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            {t('OurHistoryText')}
-          </p>
+          <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+            <p>
+              Born out of the urgent need to support the marginalised individuals in the hinterlands and suburbs, particularly on infectious disease prevention and control,
+              involving evidence generation, advocacy and empowerment.
+            </p>
+            <p>
+              Born out of the urgent need to support the marginalised individuals in the hinterlands and suburbs, particularly on infectious disease prevention and control,
+              involving evidence generation, advocacy and empowerment.
+            </p>
+            <p>
+              BCD360 has being evolving into an inclusive centre for development of young persons and marginalized women.
+            </p>
+          </div>
         </div>
 
         {/* Objectives */}

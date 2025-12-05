@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, CreditCard, Send, Loader2 } from 'lucide-react';
-import { CONTACT_INFO, BANK_DETAILS } from '../constants';
+import { Mail, Phone, MapPin, Send, Loader2, Heart } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { CONTACT_INFO } from '../constants';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useLanguage } from '../LanguageContext';
@@ -168,46 +169,57 @@ const Contact: React.FC = () => {
                   <div className="text-sm text-gray-600">
                     <p className="font-semibold text-dark mb-1">{t('Phone')}</p>
                     <p>{CONTACT_INFO.phone}</p>
-                    <p>{CONTACT_INFO.altPhone}</p>
                   </div>
                 </li>
                  <li className="flex gap-4">
                   <div className="w-10 h-10 bg-blue-50 text-primary rounded-full flex items-center justify-center flex-shrink-0"><Mail size={20}/></div>
                   <div className="text-sm text-gray-600">
-                    <p className="font-semibold text-dark mb-1">{t('Email')}</p>
-                    <p>{CONTACT_INFO.email}</p>
-                    <p>{CONTACT_INFO.officialEmail}</p>
+                    <p className="font-semibold text-dark mb-3">{t('Email')}</p>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 mb-1">General</p>
+                        <a href="mailto:info@bcd360.org.ng" className="text-primary hover:text-secondary transition font-medium">info@bcd360.org.ng</a>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 mb-1">Programmes</p>
+                        <a href="mailto:Programmes@bcd360.org.ng" className="text-primary hover:text-secondary transition font-medium">Programmes@bcd360.org.ng</a>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 mb-1">MERL (Monitoring, Evaluation & Learning)</p>
+                        <a href="mailto:MERL@bcd360.org.ng" className="text-primary hover:text-secondary transition font-medium">MERL@bcd360.org.ng</a>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 mb-1">Director</p>
+                        <a href="mailto:director@bcd360.org.ng" className="text-primary hover:text-secondary transition font-medium">director@bcd360.org.ng</a>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 mb-1">Finance & Administration</p>
+                        <a href="mailto:FA@bcd360.org.ng" className="text-primary hover:text-secondary transition font-medium">FA@bcd360.org.ng</a>
+                      </div>
+                    </div>
                   </div>
                 </li>
               </ul>
             </div>
 
-            {/* Donation Card */}
-             <div className="bg-gradient-to-br from-primary to-blue-900 p-8 rounded-2xl shadow-xl text-white">
+            {/* Support Button Card */}
+             <div className="bg-gradient-to-br from-secondary to-red-900 p-8 rounded-2xl shadow-xl text-white">
               <div className="flex items-center gap-4 mb-6">
                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                   <CreditCard size={24} className="text-secondary"/>
+                   <Heart size={24} className="text-white"/>
                  </div>
                  <h3 className="text-2xl font-serif font-bold">{t('SupportOurWork')}</h3>
               </div>
-              <p className="text-blue-100 mb-6 text-sm">
-                {t('SupportText')}
+              <p className="text-red-100 mb-8 text-sm leading-relaxed">
+                Interested in supporting our mission? View our bank details and donation information on our dedicated Support page.
               </p>
               
-              <div className="bg-white/10 rounded-xl p-6 border border-white/20 space-y-3 font-mono text-sm">
-                <div className="flex justify-between">
-                  <span className="text-blue-200">{t('Bank')}:</span>
-                  <span className="font-bold">{BANK_DETAILS.bank}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-blue-200">{t('AccountName')}:</span>
-                  <span className="font-bold text-right">{BANK_DETAILS.name}</span>
-                </div>
-                <div className="flex justify-between pt-2 border-t border-white/10">
-                  <span className="text-secondary font-bold">{t('AccountNumber')}:</span>
-                  <span className="font-bold text-lg tracking-wider">{BANK_DETAILS.number}</span>
-                </div>
-              </div>
+              <NavLink 
+                to="/support"
+                className="inline-block w-full bg-white text-secondary px-8 py-4 rounded-lg font-bold text-lg text-center hover:shadow-xl hover:bg-gray-50 transform hover:-translate-y-1 transition duration-300"
+              >
+                View Support Options
+              </NavLink>
             </div>
 
           </div>

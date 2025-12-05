@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import WorkWithUs from './pages/WorkWithUs';
+import SupportOurWork from './pages/SupportOurWork';
 import News from './pages/News';
 import PostDetail from './pages/PostDetail';
 import AdminLogin from './pages/AdminLogin';
@@ -69,6 +70,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/work-with-us" element={<WorkWithUs />} />
+            <Route path="/support" element={<SupportOurWork />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<PostDetail />} />
             

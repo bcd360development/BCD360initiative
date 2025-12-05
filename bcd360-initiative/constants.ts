@@ -6,6 +6,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Who We Are', labelFr: 'Qui Sommes-Nous', path: '/about' },
   { label: 'Our Projects', labelFr: 'Nos Projets', path: '/projects' },
   { label: 'Work With Us', labelFr: 'Bénévolat', path: '/work-with-us' },
+  { label: 'Support', labelFr: 'Soutenir', path: '/support' },
   { label: 'News', labelFr: 'Actualités', path: '/news' },
   { label: 'Contact', labelFr: 'Contact', path: '/contact' },
 ];
@@ -65,11 +66,42 @@ export const PROJECTS: ProjectData[] = [
 
 export const NEWS: NewsItem[] = [
   {
+    id: 7,
+    title: 'Gender Equality, Inclusion and Empowerment',
+    titleFr: 'Égalité des Genres, Inclusion et Autonomisation',
+    date: 'December 3, 2025',
+    summary: 'BCD360 partnering with Olive Right to Health Initiative (ORHI) recorded a remarkable breakthrough through its Capacity Building and Inclusion Programme for Young Marginalised Women.',
+    summaryFr: 'BCD360 en partenariat avec l\'Initiative Olive Right to Health (ORHI) a enregistré une percée remarquable grâce à son programme de renforcement des capacités et d\'inclusion.',
+    image: 'https://i.ibb.co/m5X9rxB0/word-media-image7.jpg',
+    category: 'Gender Equality',
+    categoryFr: 'Égalité des Genres',
+    tags: ['Gender Equality', 'Inclusion', 'Women Empowerment', 'Leadership', 'Community'],
+    tagsFr: ['Égalité des Genres', 'Inclusion', 'Autonomisation des Femmes', 'Leadership', 'Communauté'],
+    content: `BCD360 partnering with Olive Right to Health Initiative (ORHI) in promoting gender equality and social inclusion, recorded a remarkable breakthrough through its Capacity Building and Inclusion Programme for Young Marginalised Women. The initiative emerged from listening to the lived realities of young women who faced overlapping layers of exclusion, poverty, limited education, harmful cultural norms, and lack of representation in decision-making spaces. Many of these young women carried dreams of economic independence and social visibility but lacked the opportunities to advance them.
+
+Determined to change this narrative, BCD360 in partnership with ORHI launched a holistic programme focused on leadership development, livelihood skills, rights education, and community inclusion strategies. The approach centred on building confidence, strengthening agency, and creating safe platforms where young women could learn, lead, and influence their communities.
+
+![Women Inclusion Programme](https://i.ibb.co/bgzBFxDh/BCD360-11.jpg)
+
+The programme trained over 50 young women from the hinterland and suburb communities. Through interactive workshops, coaching circles, and mentorship pairings with experienced women leaders, participants gained practical skills they previously believed were beyond their reach; public speaking, digital communication, financial literacy, market linkages, and advocacy for women's rights. Each training module was designed to connect gender equality with everyday realities, enabling participants to recognise their value and challenge discriminatory practices that held them back.
+
+A defining accomplishment was the formation of Women Inclusion Hubs, safe community groups facilitated by trained participants. These hubs became spaces where young women could collectively address issues such as gender-based violence, workplace discrimination, and access to education.
+
+Among the success stories is that of Blessing, a 20-year-old who once lacked confidence to speak even in small gatherings. After completing the leadership training, she now leads her Inclusion Hub, facilitating discussions and representing young women in community meetings. Her transformation inspired a ripple effect, more girls are now stepping forward to speak, lead, and advocate.
+
+The programme's impact has exceeded expectations. It has shifted mindsets, strengthened capacities, and opened doors for young marginalised women to participate meaningfully in economic, social, and civic spaces.`,
+    contentFr: `BCD360 en partenariat avec l'Initiative Olive Right to Health (ORHI) dans la promotion de l'égalité des genres et de l'inclusion sociale, a enregistré une percée remarquable grâce à son programme de renforcement des capacités et d'inclusion pour les jeunes femmes marginalisées. L'initiative a émergé de l'écoute des réalités vécues par les jeunes femmes qui ont fait face à de multiples couches d'exclusion, de pauvreté, d'éducation limitée, de normes culturelles nuisibles et d'absence de représentation dans les espaces de prise de décision. Beaucoup de ces jeunes femmes portaient des rêves d'indépendance économique et de visibilité sociale, mais manquaient des opportunités pour les avancer.
+
+Déterminé à changer ce récit, BCD360 en partenariat avec ORHI a lancé un programme holistique axé sur le développement du leadership, les compétences de subsistance, l'éducation aux droits et les stratégies d'inclusion communautaire. L'approche s'est concentrée sur le renforcement de la confiance, le renforcement de l'agentivité et la création de plates-formes sûres où les jeunes femmes pouvaient apprendre, diriger et influencer leurs communautés.
+
+Le programme a formé plus de 50 jeunes femmes des communautés de l'arrière-pays et des banlieues. Grâce à des ateliers interactifs, des cercles de coaching et des appariements de mentorat avec des femmes leaders expérimentées, les participants ont acquis des compétences pratiques qu'ils croyaient auparavant être hors de portée; la parole en public, la communication numérique, l'alphabétisation financière, les liens commerciaux et le plaidoyer pour les droits des femmes. Chaque module de formation a été conçu pour connecter l'égalité des genres avec les réalités quotidiennes, permettant aux participants de reconnaître leur valeur et de contester les pratiques discriminatoires qui les retenaient.`
+  },
+  {
     id: 6,
     title: 'From Local Action to Global Stages: The Research Engine of BCD360',
     titleFr: 'De l\'Action Locale aux Scènes Mondiales : Le Moteur de Recherche de BCD360',
     date: 'June 10, 2025',
-    summary: 'When you think of a community NGO, you might picture grassroots workshops and local outreach—and at BCD360, that picture is absolutely correct. But there’s another, powerful layer to our work: a robust engine of research.',
+    summary: 'When you think of a community NGO, you might picture grassroots workshops and local outreach—and at BCD360, that picture is absolutely correct. But there is another, powerful layer to our work: a robust engine of research.',
     summaryFr: 'Quand vous pensez à une ONG communautaire, vous imaginez peut-être des ateliers locaux—et chez BCD360, c\'est exact. Mais il y a une autre couche puissante à notre travail : un moteur de recherche robuste.',
     image: 'https://i.ibb.co/DHHHd0qW/BCD360-9-1.jpg',
     category: 'Research',
@@ -80,15 +112,17 @@ export const NEWS: NewsItem[] = [
 
 Our "Research for Development" pillar is the backbone that informs everything we do. We believe that to solve local problems, we must first understand them deeply. Our team conducts rigorous, multidisciplinary research on the frontlines—studying HIV/SRH prevention, cervical cancer, violence against persons, and sustainable economic models within the communities we serve.
 
-This isn’t research locked in an archive. It’s living, breathing evidence that shapes our programs. The insights from a study on barriers to healthcare in Taraba state directly inform our outreach strategies. Data on economic challenges faced by young women in the FCT shapes our vocational training curriculum.
+![Research at Work](https://i.ibb.co/WW4gXDct/word-media-image4.jpg)
+
+This isn't research locked in an archive. It's living, breathing evidence that shapes our programs. The insights from a study on barriers to healthcare in Taraba state directly inform our outreach strategies. Data on economic challenges faced by young women in the FCT shapes our vocational training curriculum.
 
 And our voice doesn't stop at the community border. The quality and relevance of our work have earned a place on the world stage. Abstracts of our research have been accepted and presented at premier international conferences including the IAS Conference, AIDS 2024, HIVR4P, and Fast-Track Cities Paris. This means the realities of marginalized women and youth in Nigeria are being heard by global policymakers, scientists, and funders.
 
-This two-way flow—local data to global discourse, and global insights back to local solutions—makes our approach unique. We are not just implementing projects; we are contributing to the global body of knowledge on inclusive development while ensuring our community work is cutting-edge and evidence-based.
+This two-way flow; local data to global discourse, and global insights back to local solutions makes our approach unique. We are not just implementing projects; we are contributing to the global body of knowledge on inclusive development while ensuring our community work is cutting-edge and evidence-based.
 
-It proves that impactful change starts with listening to a community and is amplified by sharing its story with the world.
+We have continued to demonstrate that impactful change starts with listening to our community and amplifying our voice through sharing stories with the world.
 
-Interested in evidence-based development? Read about our conference presentations and research goals.`,
+Interested in our evidence-based development and research goals? Send us a message on bcd360@proton.me.`,
     contentFr: `Lorsque vous pensez à une ONG communautaire, vous imaginez peut-être des ateliers de base et une sensibilisation locale—et chez BCD360, cette image est tout à fait correcte. Mais il y a une autre couche puissante à notre travail : un moteur de recherche robuste qui traduit les expériences locales en preuves mondiales et inversement en actions locales.
 
 Notre pilier "Recherche pour le Développement" est l'épine dorsale qui informe tout ce que nous faisons. Nous croyons que pour résoudre les problèmes locaux, nous devons d'abord les comprendre en profondeur. Notre équipe mène des recherches rigoureuses et multidisciplinaires sur le terrain—étudiant la prévention du VIH/SSR, le cancer du col de l'utérus, la violence contre les personnes et les modèles économiques durables au sein des communautés que nous servons.
@@ -156,9 +190,11 @@ Ces piliers ne sont pas isolés. Ils se renforcent mutuellement, créant un éco
     tagsFr: ['Autonomisation', 'Développement', 'Communauté', 'BCD360'],
     content: `In the heart of Nigeria, where opportunity often fades at the edges of urban centers, a beacon of hope and development shines brightly—Beam Community Development 360 Initiative (BCD360). Born from an urgent need to support marginalized individuals in the hinterlands and suburbs, BCD360 has grown from a focused effort on infectious disease prevention into a comprehensive, inclusive centre dedicated to the development of young persons and marginalized women.
 
-Our mission is clear: to improve lives through creative approaches. This isn’t just about aid; it’s about empowerment. We combine capacity building, critical service provision, and innovative research to drive advocacy for truly inclusive development. Our vision is an equitable and sustainable society where well-being is universal, and no one is left on the fringes.
+Our mission is clear: to improve lives through creative approaches. This isn't just about aid; it's about empowerment. We combine capacity building, critical service provision, and innovative research to drive advocacy for truly inclusive development. Our vision is an equitable and sustainable society where well-being is universal, and no one is left on the fringes.
 
-What sets BCD360 apart is our holistic, 360-degree approach. We understand that change cannot be one-dimensional. That’s why we tackle development from every angle—economic, social, health, and environmental—guided by core values of collaboration, excellence, inclusion, and respect.
+![BCD360 Impact](https://i.ibb.co/Qvgtd8N1/word-media-image5.jpg)
+
+What sets BCD360 apart is our holistic, 360-degree approach. We understand that change cannot be one-dimensional. That's why we tackle development from every angle—economic, social, health, and environmental—guided by core values of collaboration, excellence, inclusion, and respect.
 
 From entrepreneurship training in Jalingo to health outreach in AMAC, our work is driven by the belief that with the right tools and opportunities, communities can build their own resilient futures. We are not just delivering programs; we are amplifying voices and fostering self-reliance.
 
@@ -184,7 +220,27 @@ C'est plus que notre travail ; c'est notre promesse. Une promesse de continuer �
     summaryFr: 'BCD360 a lancé avec succès le nouveau manuel complet conçu pour aider les jeunes femmes à démarrer leurs propres entreprises durables.',
     image: 'https://i.ibb.co/KgtRg95/BCD360-3-1.jpg',
     category: 'Economic Justice',
-    categoryFr: 'Justice Économique'
+    categoryFr: 'Justice Économique',
+    tags: ['Economic Empowerment', 'Women Leadership', 'Skills Development', 'Sustainability'],
+    tagsFr: ['Autonomisation Économique', 'Leadership Féminin', 'Développement des Compétences', 'Durabilité'],
+    content: `BCD360 committed to advancing gender equity and economic justice, achieved a major milestone in partnership with Olive Right to Health Initiative (ORHI) with the launch of its Economic Empowerment Manual for Young Marginalised Women. The manual, developed through inclusive community-driven research and collaboration with relevant stakeholders and women-led cooperatives, has become a transformative tool for reshaping the economic futures of countless girls and young women.
+
+Before the initiative began, many participants faced intersecting barriers; limited access to information, discriminatory labour practices, violence, exclusion from markets, and a lack of business skills. These structural inequalities left them economically vulnerable and unable to assert their rights. We at BCD360 recognised that real economic justice required not only skills development but also knowledge of rights, agency, and community support systems.
+
+The launch of the manual marked a turning point. Designed in simple, practical language, the manual covers essential themes such as financial literacy, digital safety, market access strategies, legal rights in business, pathways to justice, self-security, and how to engage local institutions for support. It also features inspiring stories of young women who overcame injustice to build sustainable livelihoods.
+
+The rollout included community workshops across communities of marginalised young women. Over 150 young women participated in the first phase, using the manual as both a learning guide and a tool for peer-to-peer knowledge sharing. Many reported immediate improvements: new small businesses launched, existing businesses stabilised, and more women began asserting their rights in markets, workplaces, and loan application processes. Local leaders also endorsed the manual as a reference tool for youth development and women's economic inclusion.
+
+One powerful testament came from Amina, a 22-year-old who survived years of economic discrimination. After attending the workshops, she used the manual's section on market linkages and budgeting to expand her beadwork business. Today, she mentors four other young women, becoming a symbol of the manual's multiplier effect.
+
+The success of the Economic Empowerment Manual demonstrates that when young marginalised women are equipped with knowledge, skills, and rights awareness, they can break cycles of poverty and injustice. Through this initiative, BCD 360 and ORHI has not only delivered a resource but catalysed a movement for lasting economic justice.`,
+    contentFr: `BCD360, engagé dans l'avancement de l'équité des genres et de la justice économique, a réalisé une étape importante en partenariat avec l'Initiative Olive Right to Health (ORHI) avec le lancement de son Manuel d'Autonomisation Économique pour les Jeunes Femmes Marginalisées. Le manuel, développé par le biais d'une recherche participative inclusive et d'une collaboration avec les parties prenantes pertinentes et les coopératives dirigées par des femmes, est devenu un outil transformateur pour remodeler les avoirs économiques d'innombrables filles et jeunes femmes.
+
+Avant que l'initiative ne commence, de nombreux participants ont fait face à des obstacles croisés; accès limité à l'information, pratiques discriminatoires du travail, violence, exclusion des marchés et manque de compétences professionnelles. Ces inégalités structurelles les ont laissés économiquement vulnérables et incapables d'affirmer leurs droits. Chez BCD360, nous avons reconnu que la véritable justice économique exigeait non seulement le développement des compétences, mais aussi la connaissance des droits, l'agentivité et les systèmes de soutien communautaire.
+
+Le lancement du manuel a marqué un tournant. Conçu dans un langage simple et pratique, le manuel couvre des thèmes essentiels tels que la littératie financière, la sécurité numérique, les stratégies d'accès au marché, les droits légaux dans les affaires, les voies vers la justice, l'auto-sécurité et comment engager les institutions locales pour le soutien. Il présente également des histoires inspirantes de jeunes femmes qui ont surmonté l'injustice pour construire des moyens de subsistance durables.
+
+Le déploiement incluait des ateliers communautaires dans les communautés de jeunes femmes marginalisées. Plus de 150 jeunes femmes ont participé à la première phase, utilisant le manuel comme un guide d'apprentissage et un outil de partage des connaissances entre pairs. Beaucoup ont signalé des améliorations immédiates: de nouvelles petites entreprises lancées, des entreprises existantes stabilisées, et plus de femmes ont commencé à affirmer leurs droits sur les marchés, les lieux de travail et les processus de demande de prêt. Les chefs locaux ont également approuvé le manuel comme un outil de référence pour le développement des jeunes et l'inclusion économique des femmes.`
   }
 ];
 
@@ -198,7 +254,6 @@ export const CONTACT_INFO = {
   address1: 'Office 1: Cajaar estate, 900102 AMAC, FCT, Nigeria.',
   address2: 'Office 2: #11, Sala Avenue, by-pass, Jalingo, Taraba state, Nigeria.',
   phone: '+2347085982732',
-  altPhone: '+2348068849782',
   email: 'bcd360development@gmail.com',
   officialEmail: 'info@bcd360.org.ng'
 };
@@ -207,7 +262,7 @@ export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/share/1CkxWDyHcy/?mibextid=wwXIfr',
   twitter: 'https://x.com/bcd360199260ng?s=21',
   instagram: 'https://www.instagram.com/beam_community_development?igsh=MWtxcXgyYjhtaWZyNA%3D%3D&utm_source=qr',
-  tiktok: 'https://www.tiktok.com/@beamcommunitydeve'
+  tiktok: 'https://www.tiktok.com/@beamcommunitydeve?_r=1&_t=ZS-91MebyfTf8'
 };
 
 export const TRANSLATIONS = {

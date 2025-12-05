@@ -192,9 +192,29 @@ const PostDetail: React.FC = () => {
             <p className="lead text-xl text-gray-600 font-light mb-8 italic border-l-4 border-accent pl-4">
               {displayDescription}
             </p>
-            {/* Render content preserving line breaks */}
-            <div className="whitespace-pre-wrap text-gray-800 leading-relaxed font-serif">
-              {displayContent}
+            {/* Render content with markdown image support */}
+            <div className="text-gray-800 leading-relaxed font-serif space-y-6">
+              {displayContent.split(/(!?\[.*?\]\(.*?\))/).map((part, idx) => {
+                // Check if it's a markdown image
+                const imageMatch = part.match(/!\[(.*?)\]\((.*?)\)/);
+                if (imageMatch) {
+                  return (
+                    <div key={idx} className="my-8 flex justify-center">
+                      <img 
+                        src={imageMatch[2]} 
+                        alt={imageMatch[1] || 'Post image'}
+                        className="max-w-full h-auto rounded-xl shadow-lg border border-gray-200"
+                      />
+                    </div>
+                  );
+                }
+                // Regular text content
+                return part ? (
+                  <div key={idx} className="whitespace-pre-wrap">
+                    {part}
+                  </div>
+                ) : null;
+              })}
             </div>
           </article>
 

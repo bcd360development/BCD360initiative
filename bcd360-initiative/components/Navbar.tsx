@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Globe, Home, Info, Briefcase, HeartHandshake, Newspaper, Mail } from 'lucide-react';
+import { Menu, X, Globe, Home, Info, Briefcase, HeartHandshake, Newspaper, Mail, Heart } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 import { useLanguage } from '../LanguageContext';
 
@@ -18,6 +18,7 @@ const Navbar: React.FC = () => {
       case '/about': return <Info size={22} />;
       case '/projects': return <Briefcase size={22} />;
       case '/work-with-us': return <HeartHandshake size={22} />;
+      case '/support': return <Heart size={22} />;
       case '/news': return <Newspaper size={22} />;
       case '/contact': return <Mail size={22} />;
       default: return null;
