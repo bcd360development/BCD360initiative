@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home Page -->
   <url>
-    <loc>https://bcd360initiative.netlify.app/</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,42 +10,42 @@
 
   <!-- Main Pages -->
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/about</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=about</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/projects</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=projects</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/work-with-us</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=work-with-us</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/support</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=support</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/contact</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=contact</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -53,49 +53,49 @@
 
   <!-- News/Blog Posts -->
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/7</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=7</loc>
     <lastmod>2025-12-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/6</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=6</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/5</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=5</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/4</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=4</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/3</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=3</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/2</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=2</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bcd360initiative.netlify.app/#/news/1</loc>
+    <loc>https://bcd360initiative.netlify.app/index.html?page=news&id=1</loc>
     <lastmod>2025-10-15</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
