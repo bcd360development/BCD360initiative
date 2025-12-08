@@ -1,0 +1,13 @@
+# Google Search Console Robots Policy
+# Allow all crawlers to index public pages
+# Disallow admin pages
+
+User-agent: *
+Allow: /
+Disallow: /adminlogin
+Disallow: /admin
+Disallow: /*.js.map
+Disallow: /*.css.map
+
+# Sitemap location
+Sitemap: https://bcd360initiative.netlify.app/sitemap.xml
