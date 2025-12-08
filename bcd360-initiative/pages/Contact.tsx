@@ -28,15 +28,32 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
+      // Submit to Firebase
       await addDoc(collection(db, "messages"), {
         ...formData,
         createdAt: serverTimestamp()
       });
+
+      // Submit to Formspree
+      await fetch('https://formspree.io/f/xzznarpo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          message: formData.message
+        })
+      });
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', address: '', message: '' });
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error: any) {
-      console.error("Error adding document: ", error);
+      console.error("Error submitting form: ", error);
       if (error.code === 'permission-denied') {
         setSubmitStatus('permission-error');
       } else {
